@@ -2,21 +2,17 @@ name: deploy-book
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
-# Only one Pages deployment at a time; don’t cancel the one in‐flight
 concurrency:
   group: pages
   cancel-in-progress: false
 
 jobs:
-  # Build the book and publish the HTML as an artifact
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -27,27 +23,25 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Clean & Build Jupyter Book
+      - name: Build Jupyter Book
         run: |
           jupyter-book clean glocal-scraping-guideline
           jupyter-book build glocal-scraping-guideline
 
-      - name: Upload pages artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # point at the folder that contains your built HTML
           path: glocal-scraping-guideline/_build/html
 
-  # Download the artifact and deploy it to GitHub Pages
   deploy:
     needs: build
     runs-on: ubuntu-latest
     permissions:
-      pages: write        # allow writing to the Pages deployment
-      id-token: write     # required by the deploy-pages action
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
     steps:
-      - name: Download pages artifact
-        uses: actions/download-pages-artifact@v3
-
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
