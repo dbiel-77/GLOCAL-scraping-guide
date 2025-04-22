@@ -23,45 +23,41 @@ Python is an open‑source, interpreted language that combines clear, readable s
    ```bash
    python3 --version    # should print something like "Python 3.x.y"
    ```
-4. **A Hidden Poem**  
+4. **Read the Hidden Poem**  
    ```bash
    python3
+   # in python terminal
    >>> import this
    ```
 
-## Setting Up Your Python Environment
 
-Make sure you have Python 3.7 or later installed. If you don’t, download it from https://www.python.org/downloads/.  
+## Text Editors
 
-Create and activate a virtual environment to isolate your scraping projects:
+Before you start writing and running Python scripts from the command line or a basic text file, it’s worth investing a little time in a dedicated text editor. A good editor gives you syntax highlighting, bracket matching, code snippets, and an integrated terminal or debugger—all of which save you from hunting through lines of plain text to spot errors. Instead of juggling multiple windows and copy‑pasting, you can write, test, and refactor your code in one place—making your workflow smoother and less error‑prone.
 
-```bash
-python3 -m venv venv
-# macOS/Linux
-source venv/bin/activate
-# Windows (PowerShell)
-.\venv\Scripts\Activate.ps1
-```
 
-Upgrade pip and install the core libraries:
+| Editor                   | Key Strengths                                                                 | Link                                     |
+|--------------------------|-------------------------------------------------------------------------------|------------------------------------------|
+| **Visual Studio Code**   | • Integrated terminal & debugger<br>• Rich extension ecosystem<br>• Built‑in Git support<br>• Best for beginners | [code.visualstudio.com](https://code.visualstudio.com/) |
+| **Sublime Text**         | • Ultra‑lightweight & blazing fast<br>• “Goto Anything” fuzzy finder<br>• Powerful multi‑selection editing<br>• Package Control | [www.sublimetext.com](https://www.sublimetext.com/)   |
+| **Atom**                 | • Highly hackable (built on Electron)<br>• GitHub integration<br>• Teletype for real‑time collaboration | [atom.io](https://atom.io/)             |
+| **Vim**                  | • Modal, keyboard‑driven editing<br>• Very low resource usage<br>• Ubiquitous on Unix systems<br>• Steep learning curve but massive speed gains | [www.vim.org](https://www.vim.org/)     |
+| **Emacs**                | • Infinitely extensible via Emacs Lisp<br>• Integrated shell, mail, calendar<br>• Org‑mode for notes/tasks | [www.gnu.org/software/emacs/](https://www.gnu.org/software/emacs/) |
 
-```bash
-pip install --upgrade pip
-pip install requests beautifulsoup4 lxml
-```
-
-Your environment now has everything you need to fetch pages and parse HTML.
 
 ## Basic Python: Variables and Types
 
 Python is dynamically typed. You can assign any value to a variable:
 
 ```python
-url = "https://example.gov/data" # string
-retry_limit = 3 # integer
-headers = {"User-Agent": "MyScraper/1.0"}  # dictionary with key:value pairs
-parks = ['riverside park', 'lakeside park', 'bayside park'] # list, an ordered set
-parks_unordered = ('riverside park', 'lakeside park', 'bayside park') # an unordered set
+# string
+url = "https://example.gov/data"
+
+# integer
+retry_limit = 3 
+
+# dictionary with key:value pairs
+headers = {"User-Agent": "MyScraper/1.0"}
 ```
 
 Common built‑in types you’ll use:
@@ -76,7 +72,7 @@ Common built‑in types you’ll use:
 
 ## Working with Strings
 
-Web scraping often means cleaning and extracting text. Python’s string methods make this easy:
+Data comes in all shapes and configurations on the web - you will inevitably run into cases where text isnt displayed in a format that matches the receiving database. Python’s string methods make this easy:
 
 ```python
 text = "   Hello, World!  \n"
@@ -91,8 +87,8 @@ snippet = clean[7:12]                  # "World"
 Try these exercises:
 
 - Given `"Page 123 of 456"`, extract the page numbers as integers.
-- Replace all whitespace in `"New York City"` with underscores.
-- Normalize a list of URLs by lowercasing and stripping trailing slashes.
+- Replace all whitespace in `"GLOCAL foundation of Canada"` with underscores.
+- Turn `GLOCAL` into a list of the letters that make it up, in lowercase, output should be `['g', 'l', 'o', 'c', 'a', 'l']`
 
 ## Data Structures for Scraping
 
@@ -117,12 +113,28 @@ park = {
 }
 ```
 
+This is especially helpful when scraping large amounts of similar data - for example, the process for scraping federal election candidates used key/value assignment before appending each entry to a csv. Scraped values would be collected, cleaned, and assigned a variable before being aggregated into a dict:
+
+```python
+    candidate_record = {
+        "name": full_name,
+        "constituency": riding,
+        "role": role,
+        "affiliation": sel["affiliation"],
+        "image_file": photo_url,
+        "bio": bio_text,
+        "socials": json.dumps(socials, ensure_ascii=False),
+        "sources": json.dumps(sources, ensure_ascii=False)
+    }
+```
+
 ## Control Flow: Loops and Conditionals
 
 Scrapers loop over multiple pages and make decisions:
 
 ```python
-for page in range(1, 11):
+# For example, 10 similar pages at example.gov/page/1 through example.gov/page/10
+for page in range(1, 11): # range(start, stop-before) ==> 1 through 10.
     url = f"https://example.gov/page/{page}"
     resp = requests.get(url)
     if resp.status_code != 200:
@@ -145,10 +157,53 @@ while attempt < retry_limit:
 
 ## Functions and Modularity
 
-Wrap repeated logic into functions:
+You will quickly realize that parts of your program are repeating themselves - functions help minimize repetition, and allow for easy maintenance and debugging - in any code you write, knowing how to write a clearly defined and simply designed function is paramount.
+
+A useful approach is 'top-down design' - identify the problem, and figure out how it can be broken down into several smaller problems. Take this script for example:
 
 ```python
 import requests
+from bs4 import BeautifulSoup
+
+resp = requests.get("https://example.gov/data", headers=None)
+resp.raise_for_status()
+raw = resp.text
+soup = BeautifulSoup(raw, "lxml")
+data = data
+print(data)
+```
+This script functions as intended - it is however, very hard to look at.
+
+Python is special because it is a verbose language - it was designed with the understanding that it is humans who will be reading, writing, and maintaining python code - computers only speak in 1s and 0s. 
+
+Going line by line, we can see that there are four tasks being completed in the script:
+- `imports`: importing requests and beautifulsoup
+- `fetching`: using requests to connect to a url, and retrieve the data
+- `parsing`: using beautifulsoup to parse the raw data
+- `output`: printing the raw data
+
+So why not isolate each task?
+
+Imports do not need to be wrapped in a function, they are almost always declared in the first line of the script.
+
+Fetching, Parsing are the two 'main' components of the script - two unique steps to producing the output - they can be wrapped in their own respective functions.
+
+Unlike direct commands, functions need to be called to execute - this is where the two final steps come in:
+```python
+def main():
+    # call functions, pass arguments, etc here
+    pass
+
+if __name__ == "__main__": # a top level execution statement - not neccessary, but best-practice
+    main()
+```
+When you run this script, the `if __name__ == "__main__":` guard kicks off our single entry point—`main()`. Inside `main()`, we simply call `fetch()` to grab the HTML, hand it off to `parse()`, then print the result. By organizing code this way, each step stays small and self‑contained, and `main()` reads like a concise roadmap of the program's flow.
+
+Combining the above, we get a script that looks like this:
+
+```python
+import requests
+from bs4 import BeautifulSoup
 
 def fetch(url, headers=None):
     resp = requests.get(url, headers=headers)
@@ -156,18 +211,19 @@ def fetch(url, headers=None):
     return resp.text
 
 def parse(html):
-    from bs4 import BeautifulSoup
     soup = BeautifulSoup(html, "lxml")
-    # extract data…
     return data
 
-if __name__ == "__main__":
+def main():
     raw = fetch("https://example.gov/data")
     data = parse(raw)
     print(data)
+    pass
+
+if __name__ == "__main__":
+    main()
 ```
 
-Functions let you test, reuse, and compose your scraping pipeline.
 
 ## Intermediate Features: List Comprehensions & Generators
 
@@ -190,7 +246,17 @@ for url in generate_urls(1, 1000):
 
 ## Context Managers & File I/O
 
-Use `with` to manage resources:
+### Reading  
+When reading the contents of a file—such as a CSV—it is best practice to do so within a `with` statement. Imagine that you want to read a book: you take it, open it to a page, read its contents. Do you leave it open on your desk when you're done? Probably not. The same goes for files. `with open() as file:` ensures that the file is **automatically closed** once the block is done, even if an error occurs. This is called using a **context manager**, and it's a clean, safe way to handle file input.
+
+```python
+with open("data.csv", "r", encoding="utf-8") as fp:
+    for line in fp:
+        print(line.strip())
+```
+
+### Writing  
+Just as context managers help when reading, they’re equally valuable when writing. Without `with`, you'd need to remember to call `file.close()` yourself—which risks bugs or locked files if you forget. By using `with`, Python handles cleanup for you.
 
 ```python
 with open("data.csv", "w", encoding="utf-8") as fp:
@@ -199,12 +265,47 @@ with open("data.csv", "w", encoding="utf-8") as fp:
         writer.writerow([record["name"], record["email"]])
 ```
 
-When fetching pages, you can also stream large downloads:
+Here, `"w"` opens the file for writing (overwriting if it already exists), and the context manager guarantees that all buffered data is flushed and the file is closed properly when the block finishes.
+
+### File Open Modes: A Quick Reference
+
+When using Python’s built-in `open()` function, you can specify how the file should be opened using **modes**. These modes control whether you're reading, writing, appending, or working with binary data.
+
+| Mode | Stands For         | Description                                                                 |
+|------|---------------------|-----------------------------------------------------------------------------|
+| `'r'`  | **Read**             | Opens a file for reading (default). File must exist.                         |
+| `'w'`  | **Write**            | Opens a file for writing. **Overwrites** if it exists, creates if it doesn’t. |
+| `'a'`  | **Append**           | Opens a file for writing. Creates if not exists, **appends** to the end.     |
+| `'x'`  | **Exclusive Create** | Creates a new file, fails if it already exists.                              |
+| `'r+'` | **Read & Write**     | Opens a file for both reading and writing. File must exist.                  |
+| `'w+'` | **Write & Read**     | Opens for reading and writing. Overwrites the file.                          |
+| `'a+'` | **Append & Read**    | Opens for reading and appending. Creates file if it doesn’t exist.           |
+| `'b'`  | **Binary**           | Add to mode for binary files (e.g., `'rb'`, `'wb'`).                         |
+| `'t'`  | **Text**             | Default. Add to explicitly indicate text mode (e.g., `'rt'`, `'wt'`).       |
+
+#### Examples
+
+- `open("file.txt", "r")`: open for reading text  
+- `open("file.bin", "rb")`: open for reading binary  
+- `open("file.txt", "w+")`: open for reading and writing (overwrites file)  
+- `open("file.txt", "a")`: open for writing, appends to end if file exists  
+
+## Encoding: Handling Text the Right Way
+
+When opening text files, especially ones with non-English characters (like accents or symbols), it’s important to specify an **encoding**. Without it, Python may default to a system-specific encoding (like `cp1252` on Windows), which can cause weird characters or outright errors when reading or writing.
+
+The safest, most universal choice? `encoding="utf-8"`
+
+#### Why `utf-8`?
+- It supports **all Unicode characters** (i.e., most languages and symbols)
+- It’s the **standard encoding for the web and modern systems**
+- It avoids platform-specific issues
+
+#### Example
 
 ```python
-with requests.get(url, stream=True) as resp:
-    for chunk in resp.iter_content(1024):
-        fp.write(chunk)
+with open("data.txt", "r", encoding="utf-8") as f:
+    content = f.read()
 ```
 
 ## Error Handling and Logging
@@ -224,29 +325,5 @@ except requests.HTTPError as e:
 else:
     data = parse(html)
 ```
-
-## Advanced: Decorators, Iterators, and Packaging
-
-- **Decorators** can add retry logic to any function:
-
-  ```python
-  from tenacity import retry, stop_after_attempt, wait_fixed
-
-  @retry(stop=stop_after_attempt(3), wait=wait_fixed(2))
-  def fetch_with_retry(url):
-      return fetch(url)
-  ```
-
-- **Custom iterators** let you encapsulate complex crawling patterns.
-- **Turning your scraper into a package** with a `setup.py` or `pyproject.toml` makes sharing and versioning easier.
-
-## Bridging to BeautifulSoup
-
-Everything above lays the groundwork for parsing HTML:
-
-- Use your `fetch` functions to grab `resp.text`.
-- Clean and normalize strings before searching.
-- Pass HTML to BeautifulSoup and combine its navigation methods with Python loops, comprehensions, and exception handling.
-- Collect parsed items into dicts or dataclasses for structured output.
 
 With these Python fundamentals in place, you’re ready to dive into BeautifulSoup’s rich parsing API in the next chapter.
