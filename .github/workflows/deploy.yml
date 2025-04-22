@@ -23,6 +23,10 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Regenerate Sphinx conf
+        working-directory: glocal-scraping-guideline
+        run: jupyter-book config sphinx .
+
       - name: Build Jupyter Book
         run: |
           jupyter-book clean glocal-scraping-guideline
