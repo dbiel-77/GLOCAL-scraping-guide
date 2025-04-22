@@ -77,7 +77,7 @@ riding = page_content.find('h2').get_text(strip=true)
 photo_url = page_content.find('img', src=True)['src']
 ```
 
-```stdout
+```
 Name:      Councillor Vincent Crisanti
 Riding:    Etobicoke North
 Photo URL: https://www.toronto.ca/wp-content/uploads/2023/01/968e-2216710W01CouncillorVincentCrisanti2-50x625.jpg

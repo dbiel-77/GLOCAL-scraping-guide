@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: 0-intro
+root: index
 chapters:
 - file: 1-http-fundamentals
 - file: 2-html-structure

@@ -188,7 +188,7 @@ clean4 = regex.sub(r'\p{C}+', '', text)
 ```
 
 **Output**
-```stdout
+```
 1: Some textwith invisible charsand other⁠weird stuff.
 2: Some text with invisible chars and other⁠weird stuff.
 3: Some textwith invisible charsand other⁠weird stuff.
