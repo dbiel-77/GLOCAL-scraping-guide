@@ -6,4 +6,5 @@ root: 0-intro
 chapters:
 - file: 1-http-fundamentals
 - file: 2-html-structure
-- file: 3-beautiful-soup
+- file: 3-python-basics
+- file: 4-beautiful-soup
