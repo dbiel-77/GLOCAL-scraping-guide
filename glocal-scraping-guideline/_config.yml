@@ -35,3 +35,11 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+
+  theme:
+  name: sphinx_book_theme
+  options:
+    
+    logo_light:  images/logo-light.svg
+    logo_dark:   images/logo-dark.svg
+    logo_only:   true
