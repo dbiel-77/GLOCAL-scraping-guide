@@ -36,7 +36,7 @@ html:
   theme:
     name: sphinx_book_theme
     options:
-      
-      logo_light:  _static/logo-light.png
-      logo_dark:   _static/logo-dark.png
+      logo:
+        logo_light:  _static/logo-light.png
+        logo_dark:   _static/logo-dark.png
       logo_only:   true
