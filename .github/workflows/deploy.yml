@@ -23,9 +23,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Generate Sphinx config
-        run: jupyter-book config sphinx .
-
       - name: Build Jupyter Book
         run: |
           jupyter-book clean glocal-scraping-guideline
