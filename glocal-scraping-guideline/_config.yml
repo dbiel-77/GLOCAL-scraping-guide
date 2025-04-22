@@ -8,7 +8,6 @@
 title                       : GLOCAL Scraping Guidelines  # The title of the book. Will be placed in the left navbar.
 author                      : Daniel Biel  # The author of the book
 copyright                   : "2025"  # Copyright year to be placed in the footer
-logo                        : "_static/logo-light.png"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -34,9 +33,10 @@ html:
   use_issues_button: true
   use_repository_button: true
 
-html_theme_options = {
-   "logo": {
-      "image_light": "_static/logo-light.png",
-      "image_dark": "_static/logo-dark.png",
-   }
-}
+  theme:
+    name: sphinx_book_theme
+    options:
+      logo:
+        logo_light:  _static/logo-light.png
+        logo_dark:   _static/logo-dark.png
+      logo_only:   true
