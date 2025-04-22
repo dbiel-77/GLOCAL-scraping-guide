@@ -145,11 +145,11 @@ Beyond basic searching and text extraction, BeautifulSoup offers powerful tools 
 ### Encoding
 After compiling a collection (be it in csv, txt, or other format) of data, it is important to do a thourough check for encoding errors. Even if you declare utf-8 encoding in the save statement, you may still find characters like this in the output:
 
-![encoding-error-1](images/encoding-error-1.png)
+![encoding-error-1](_static/encoding-error-1.png)
 
 or a more extreme example, where every character is 'corrupted':
 
-![encoding-error-2](images/encoding-error-2.png)
+![encoding-error-2](_static/encoding-error-2.png)
 
 
 In most cases, this is either due to the file being opened with a non utf-8 encoding in your text editor - Visual Studio Code or a sheet editor like Excel, or due to an improper encoding declaration when saving the file in the script.
