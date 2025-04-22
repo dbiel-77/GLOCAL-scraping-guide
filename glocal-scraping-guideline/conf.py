@@ -15,6 +15,7 @@ html_baseurl = ''
 html_favicon = ''
 html_logo = '_static/logo-dark.png'
 html_sourcelink_suffix = ''
+html_static_path = ["_static"]
 html_theme = 'sphinx_book_theme'
 html_theme_options = {
     'search_bar_text': 'Search this book...', 
@@ -42,8 +43,8 @@ html_theme_options = {
     'use_edit_page_button': False, 
     'use_issues_button': True, 
     "logo": {
-        "image_light": "_static/logo-light.png", 
-        "image_dark": "_static/logo-dark.png",
+        "image_light": "logo-light.png", 
+        "image_dark": "logo-dark.png",
         "link": "https://glocalfoundation.ca/"
         }, 
     'logo_only': True
