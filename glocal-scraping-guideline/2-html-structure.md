@@ -84,6 +84,7 @@ Photo URL: https://www.toronto.ca/wp-content/uploads/2023/01/968e-2216710W01Coun
 ```
 
 In practice, you will come across all kinds of unique cases - far too many to document in a guide. With some problem-solving, anything can be achieved - scraping some data off of a website is nowhere near as straightforward as it may seem - each unique page presents a unique problem that requires a unique approach.
+
 ---
 
 ## 3. Dynamic Components

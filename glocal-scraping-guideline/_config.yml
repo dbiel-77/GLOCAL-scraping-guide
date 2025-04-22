@@ -41,9 +41,9 @@ html:
   use_repository_button: true
 
   theme:
-  name: sphinx_book_theme
-  options:
-    
-    logo_light:  images/logo-light.png
-    logo_dark:   images/logo-dark.png
-    logo_only:   true
+    name: sphinx_book_theme
+    options:
+      
+      logo_light:  images/logo-light.png
+      logo_dark:   images/logo-dark.png
+      logo_only:   true
