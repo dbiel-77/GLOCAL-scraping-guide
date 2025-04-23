@@ -30,7 +30,7 @@ Python is an open‑source, interpreted language that combines clear, readable s
    >>> import this
    ```
 
-# Basic Python Operators and Logic Table
+## Basic Python Operators and Logic Table
 
 | **Category**     | **Operator** | **Description**                              | **Example**                   |
 |------------------|--------------|----------------------------------------------|-------------------------------|
