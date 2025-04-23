@@ -27,6 +27,9 @@ jobs:
         working-directory: glocal-scraping-guideline
         run: jupyter-book config sphinx .
 
+      - name: Migrate old TOC
+        run: jupyter-book toc migrate _toc.yml -o _toc.yml
+
       - name: Build Jupyter Book
         run: |
           jupyter-book clean glocal-scraping-guideline
