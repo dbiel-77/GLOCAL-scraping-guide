@@ -2,17 +2,19 @@ format: jb-book
 root: index
 
 chapters:
-  - title: Python
-    sections:
+  - file: index
+
+  - part: Python
+    chapters:
       - file: python/python-basics
 
-  - title: Web Fundamentals
-    sections:
+  - part: Web Fundamentals
+    chapters:
       - file: fundamentals/http-fundamentals
       - file: fundamentals/html-structure
 
-  - title: BeautifulSoup
-    sections:
+  - part: BeautifulSoup
+    chapters:
       - file: scraping/beautiful-soup
       - file: scraping/beginner-soup
       - file: scraping/advanced-soup
