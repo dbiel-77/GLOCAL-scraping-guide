@@ -23,8 +23,6 @@ https://www.toronto.ca/city-government/council/members-of-council/
 1. **Scheme**: `https` (secure HTTP) or `http` (unencrypted)  
 2. **Host**: `toronto.ca`  
 3. **Path**: `/city-government/council`  
-
-And in some cases
 4. **Query**: `?query=param` (key–value pairs)  
 5. **Fragment**: `#section` (client‑side anchors)
 

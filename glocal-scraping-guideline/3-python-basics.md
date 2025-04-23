@@ -180,8 +180,7 @@ text = "   Hello, World!  \n"
 clean = text.strip()                   # "Hello, World!"
 lower = clean.lower()                  # "hello, world!"
 parts = clean.split(",")               # ["Hello", " World!"]
-joined = "-".join([p.strip() for p in parts])  
-# "Hello-World!"    
+joined = "-".join([p.strip() for p in parts]) # "Hello-World!"    
 snippet = clean[7:12]                  # "World"
 ```
 
