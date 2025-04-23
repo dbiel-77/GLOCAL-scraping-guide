@@ -3,19 +3,10 @@ root: index
 
 chapters:
   - file: index
-
-  - title: Python
-    sections:
-      - file: python/python-basics
-
-  - title: Web Fundamentals
-    sections:
-      - file: fundamentals/http-fundamentals
-      - file: fundamentals/html-structure
-
-  - title: BeautifulSoup
-    sections:
-      - file: scraping/beautiful-soup
-      - file: scraping/beginner-soup
-      - file: scraping/advanced-soup
-      - file: scraping/lazy-loading
+  - file: python/python-basics
+  - file: fundamentals/http-fundamentals
+  - file: fundamentals/html-structure
+  - file: scraping/beautiful-soup
+  - file: scraping/beginner-soup
+  - file: scraping/advanced-soup
+  - file: scraping/lazy-loading
