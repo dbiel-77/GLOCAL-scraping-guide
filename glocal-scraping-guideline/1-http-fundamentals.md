@@ -31,8 +31,7 @@ If you are scraping multiple pages - such as in our Toronto Council example, it 
 
 ```
 https://www.toronto.ca/city-government/council/members-of-council/councillor-ward-X/
-
----
+```
 
 Where X is a number from 1-25. Further analysis revealed that each of the councillor pages have an identical HTML structure - so, instead of writing 25 scripts for 25 pages, I could write one script that iterates through paths ../councillor-ward-X where x is 1 through 25:
 
