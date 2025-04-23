@@ -272,5 +272,7 @@ Control how nested text is joined:
 
 ---
 
-For the full API reference and additional recipes, see the official docs:  
-<https://www.crummy.com/software/BeautifulSoup/bs4/doc/>  
+## Further Reading
+- [Beautiful Soup Documentation](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+- [Real Python: Web Scraping With Beautiful Soup](https://realpython.com/beautiful-soup-web-scraper-python/)
+- [Python Requests + BeautifulSoup Guide](https://realpython.com/python-requests/)

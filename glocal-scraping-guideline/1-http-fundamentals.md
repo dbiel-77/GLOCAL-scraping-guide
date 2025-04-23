@@ -4,7 +4,7 @@ This chapter introduces the core concepts of the Hypertext Transfer Protocol (HT
 
 ---
 
-## 1. HTTP at a Glance
+## HTTP at a Glance
 
 HTTP is a **stateless, request–response** protocol that runs over TCP/IP. When you scrape a government site, your scraper acts as an HTTP client, sending requests to the server and processing its responses.
 
@@ -12,7 +12,7 @@ HTTP is a **stateless, request–response** protocol that runs over TCP/IP. When
 - **Request–Response Cycle**: A client issues a request, the server processes it, and returns a response.
 
 
-## 2. Anatomy of a URL
+## Anatomy of a URL
 
 A typical URL looks like:
 
@@ -48,7 +48,7 @@ FOR ward_number IN RANGE(1, 26):         // 1 through 25
 
 ```
 
-## 3. Common HTTP Methods
+## Common HTTP Methods
 
 | Method   | Description                               |
 |:---------|:------------------------------------------|
@@ -64,7 +64,7 @@ In scraping, **GET** is king—most endpoints expose lists or pages via GET. Use
 
 ---
 
-## 4. HTTPS & Security
+## HTTPS & Security
 
 Government sites almost always run over **HTTPS**. TLS encryption:
 

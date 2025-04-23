@@ -4,7 +4,7 @@ This page dives into the anatomy of an HTML document - the skeleton of every pag
 
 ---
 
-## 1. The Basic Skeleton
+## The HTML Skeleton
 
 Every HTML page follows a structure that can be summarized as the following:
 
@@ -37,7 +37,7 @@ Key sections:
 
 ---
 
-## 2. Common Structural Elements
+## Common Structural Elements
 
 | Element   | Purpose                                  |
 |-----------|------------------------------------------|
@@ -87,7 +87,7 @@ In practice, you will come across all kinds of unique cases - far too many to do
 
 ---
 
-## 3. Dynamic Components
+## Dynamic Components
 
 Many pages include interactive widgets or accordions:
 
@@ -104,7 +104,7 @@ If the content is loaded dynamically, for example - an image that only loads onc
 
 ---
 
-## 4. Inspecting with Browser DevTools
+## Inspecting with Browser DevTools
 
 1. **Open DevTools**: Press `F12` (Windows) or `Cmd+Option+I` (Mac)
 2. **Elements panel**: Browse the live DOM tree—hover to highlight elements on the page.
@@ -114,7 +114,7 @@ If the content is loaded dynamically, for example - an image that only loads onc
 
 ---
 
-## 5. Setting up a scraper configuration
+## Setting up a scraper configuration
 Be sure to make note of the elements that you want to scrape and keep them separate from the rest of the script. When I was scraping federal election candidates for example, I created one unique script per party, with a configuration at the very top. The configuration contained and organized selecters and definitions in a key pair format - the script will call the value when needed, as opposed to hardcoding the selector itself (multiple times). 
 
 ```
@@ -130,7 +130,8 @@ Be sure to make note of the elements that you want to scrape and keep them separ
 ```
 In the event of a major page redesign, you will only need to update the config you created at the top.
 
-## 6. Tips for Robust Selectors
+```{tip}
+Use Robust Selectors
 
 - Prefer **ID** selectors (`#page-header--title`) when available—they’re unique.
 - Use **class** or **attribute** selectors when no ID exists: `.staff-list li`, `div[role="main"]`.
@@ -143,7 +144,9 @@ for item in staff_items:
     name, email = item.get_text(), item.find('a').get('href')
 ```
 
----
-
-With this foundational knowledge of HTML structure and browser inspection, you’ll be ready to craft precise parsing logic in BeautifulSoup or automate interactions with Selenium.
+```
+## Further Reading
+- [MDN: HTML Introduction](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [HTML Living Standard – WHATWG](https://html.spec.whatwg.org/)
+- [MDN: HTML Elements Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 

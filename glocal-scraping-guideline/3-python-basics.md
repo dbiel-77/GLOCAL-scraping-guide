@@ -2,7 +2,7 @@
 
 Python is an open‑source, interpreted language that combines clear, readable syntax with a “batteries‑included” standard library—everything from HTTP clients to JSON parsers is ready to go out of the box. It supports multiple paradigms (procedural, object‑oriented, functional), automatic memory management, and an enormous ecosystem of third‑party packages. That makes Python both easy to learn and incredibly powerful for tasks like web scraping, data analysis, automation, and more.
 
-**Installing Python & getting started**  
+## **Installing Python & getting started**  
 1. **Download & install**  
    - **Windows/macOS**: Grab the latest installer from https://python.org/downloads/ and follow the prompts.  
    - **Linux**:  
@@ -87,7 +87,7 @@ You can read it in the python interpreter by typing:
 
 Pythonic code isn’t just about style — it reduces bugs, improves maintainability, and makes your programs a joy to work on for others and your future self. Aim for **elegance through simplicity**.
 
-```{note}
+```{tip}
 If your code "feels right" to read aloud, you're probably on the right track.
 ```
 
@@ -116,15 +116,15 @@ If your code "feels right" to read aloud, you're probably on the right track.
 | Identity         | `is`         | True if same object in memory                | `a is b`                      |
 |                  | `is not`     | True if not same object in memory            | `a is not b`                  |
 
-```{note}
+```{tip}
 Tips:
 - Comparison and logical operators are often used in `if` statements.
 - Use parentheses `()` to control order of evaluation in complex expressions.
+```
 
-Resources:
+Further Reading:
 - [Python Arithmetic Operators](https://docs.python.org/3/library/operator.html#arithmetic-operators)
 - [Python Logical Operators](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not)
-```
 
 ## Basic Python: Variables and Types
 
@@ -157,7 +157,8 @@ Python automatically sets a data type when you assign a variable, for example:
 python3
 >>> x = 1 # int
 >>> y = 1.5 # float
->>> x + y # python interprets 1 as 1.0
+
+>>> x + y # python interprets 1 as 1.0 || 1.0 + 1.5
 2.5
 ```
 If you try to perform a type-restricted operation on the wrong type, you will receive a TypeError:
@@ -186,6 +187,7 @@ i = 1
 f = 2.5
 lst = ["GLOCAL", "Foundation", "of", "Canada"]
 dictionary = {"Name": "Daniel", "Location": "Mars"}
+sentence = "This is the first time that Daniel has written a book"
 
 # Convert string to integer
 int_s2 = int(s2)  # 1234
@@ -228,8 +230,7 @@ eval_expr = eval(expr)  # 7
 safe_str = str(dictionary)  # "{'Name': 'Daniel', 'Location': 'Mars'}"
 
 # Convert string to list of words
-sentence = "Web scraping is cool"
-split_sentence = sentence.split() 
+split_sentence = sentence.split()  #['This', 'is', 'the', 'first', 'time', 'that', 'Daniel', 'has', 'written', 'a', 'book']
 ```
 
 ## Working with Strings
@@ -251,7 +252,7 @@ Try these exercises:
 - Replace all whitespace in `"GLOCAL foundation of Canada"` with underscores.
 - Turn `GLOCAL` into a list of the letters that make it up, in lowercase, output should be `['g', 'l', 'o', 'c', 'a', 'l']`
 
-## Data Structures for Scraping
+## Data Structures
 
 You’ll often gather multiple items of data. Lists and dictionaries let you organize them:
 
@@ -550,7 +551,7 @@ Using `logger` instead of `print()` gives you more control and scales better for
 
 ---
 
-### Another Cool Built-in: `enumerate()`
+### Enumerate: `enumerate()`
 
 When looping through a list and you need both the **index** and the **item**, don’t use `range(len(...))`. Use `enumerate()`—it’s cleaner and more Pythonic.
 
@@ -566,4 +567,7 @@ This makes your loops easier to read and removes the need to manually manage cou
 Read more in the [`enumerate()` documentation](https://docs.python.org/3/library/functions.html#enumerate).
 
 
-With these Python fundamentals in place, you’re ready to dive into BeautifulSoup’s rich parsing API in the next chapter.
+## Further Reading
+- [Official Python Tutorial](https://docs.python.org/3/tutorial/)
+- [Real Python: Python Basics](https://realpython.com/python-basics/)
+- [PEP 8 – Style Guide for Python Code](https://peps.python.org/pep-0008/)
