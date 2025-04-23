@@ -23,12 +23,73 @@ Python is an open‑source, interpreted language that combines clear, readable s
    ```bash
    python3 --version    # should print something like "Python 3.x.y"
    ```
-4. **Read the Hidden Poem**  
-   ```bash
-   python3
-   # in python terminal
-   >>> import this
-   ```
+
+## Pythonic Principles
+
+Python is special because it's a **verbose** and **human-centric** language. It was designed with the philosophy that **code is read more often than it's written**, and it's *humans*, not machines, who will be reading, writing, and maintaining it.
+
+So, while computers ultimately understand only binary (1s and 0s), **Python embraces readability and simplicity**, making it closer to natural language than most programming languages.
+
+### What Does It Mean to Write Pythonic Code?
+
+Writing "Pythonic" code means writing code that adheres to the idioms, principles, and style guidelines embraced by the Python community. It's not just about getting the job done — it's about doing it *the Python way*.
+
+### Characteristics of Pythonic Code
+
+| Trait                  | Description                                                                 |
+|------------------------|-----------------------------------------------------------------------------|
+| **Readable**           | Prioritizes clarity and easy understanding over cleverness or brevity      |
+| **Concise**            | Avoids unnecessary repetition or verbosity                                  |
+| **Explicit**           | Prefers clear behavior to implicit tricks or surprises                      |
+| **Simple > Complex**   | Strives to solve problems in the simplest reasonable way                    |
+| **Elegant**            | Uses built-in features and idioms instead of over-engineering solutions     |
+| **Consistent**         | Follows the conventions of [PEP 8](https://peps.python.org/pep-0008/)       |
+| **Leverages Python's Standard Library** | Uses "batteries included" modules rather than reinventing the wheel   |
+
+### Pythonic vs Unpythonic
+
+```python
+# Unpythonic: verbose and manual
+squares = []
+for i in range(10):
+    squares.append(i * i)
+
+# Pythonic: concise and readable
+squares = [i * i for i in range(10)]
+```
+
+```python
+# Unpythonic: using index unnecessarily
+names = ["Alice", "Bob", "Charlie"]
+for i in range(len(names)):
+    print(names[i])
+
+# Pythonic: iterate directly
+for name in names:
+    print(name)
+```
+
+### Key Tools That Help You Write Pythonically
+
+- **List/Dict/Set comprehensions**
+- **Context managers** (`with open(...) as f:`)
+- **Unpacking** (`a, b = b, a`)
+- **Enumerate and zip** instead of `range(len(...))`
+- **Built-in functions** like `map()`, `filter()`, `sorted()`, `any()`, `all()`, `sum()`
+
+### Zen of Python (by Tim Peters)
+You can read it in the python interpreter by typing:
+```bash
+>>> import this
+```
+
+### In Practice
+
+Pythonic code isn’t just about style — it reduces bugs, improves maintainability, and makes your programs a joy to work on for others and your future self. Aim for **elegance through simplicity**.
+
+```{note}
+If your code "feels right" to read aloud, you're probably on the right track.
+```
 
 ## Basic Python Operators and Logic Table
 
@@ -285,8 +346,6 @@ data = data
 print(data)
 ```
 This script functions as intended - it is however, very hard to look at.
-
-Python is special because it is a verbose language - it was designed with the understanding that it is humans who will be reading, writing, and maintaining python code - computers only speak in 1s and 0s. 
 
 Going line by line, we can see that there are four tasks being completed in the script:
 - `imports`: importing requests and beautifulsoup
