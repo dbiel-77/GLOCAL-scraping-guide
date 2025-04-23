@@ -144,7 +144,6 @@ for item in staff_items:
     name, email = item.get_text(), item.find('a').get('href')
 ```
 
-```
 ## Further Reading
 - [MDN: HTML Introduction](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [HTML Living Standard – WHATWG](https://html.spec.whatwg.org/)

@@ -4,7 +4,7 @@
 format: jb-book
 root: index
 chapters:
+- file: 3-python-basics
 - file: 1-http-fundamentals
 - file: 2-html-structure
-- file: 3-python-basics
 - file: 4-beautiful-soup
