@@ -1,4 +1,4 @@
-# Getting Started with BeautifulSoup
+# BeautifulSoup
 
 ## 1. Prerequisites
 

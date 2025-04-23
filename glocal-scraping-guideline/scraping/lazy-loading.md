@@ -1,4 +1,4 @@
-# Selenium and Lazy Loading
+# Lazy Loading & Selenium 
 
 ## What Is Lazy Loading?
 Many modern sites defer loading images or other content until you scroll or interact. This “lazy loading” boosts performance but means a simple HTTP fetch won’t see everything—images may not exist in the raw HTML.

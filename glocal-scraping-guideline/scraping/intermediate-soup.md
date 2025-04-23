@@ -1,4 +1,4 @@
-# Advanced Soup 🧑‍🍳
+# Intermediate Soup
 
 ### Encoding
 After compiling a collection (be it in csv, txt, or other format) of data, it is important to do a thourough check for encoding errors. Even if you declare utf-8 encoding in the save statement, you may still find characters like this in the output:

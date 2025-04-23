@@ -3,9 +3,9 @@ root: index
 
 chapters:
 - file: python/python-basics
-- file: fundamentals/http-fundamentals
-- file: fundamentals/html-structure
+- file: web-fundamentals/http-fundamentals
+- file: web-fundamentals/html-structure
 - file: scraping/beautiful-soup
 - file: scraping/beginner-soup
-- file: scraping/advanced-soup
+- file: scraping/intermediate-soup
 - file: scraping/lazy-loading
