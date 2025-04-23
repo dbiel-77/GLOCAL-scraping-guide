@@ -55,14 +55,15 @@ Python is an open‑source, interpreted language that combines clear, readable s
 | Identity         | `is`         | True if same object in memory                | `a is b`                      |
 |                  | `is not`     | True if not same object in memory            | `a is not b`                  |
 
-### Notes:
+```{note}
+Tips:
 - Comparison and logical operators are often used in `if` statements.
 - Use parentheses `()` to control order of evaluation in complex expressions.
 
-### Resources:
+Resources:
 - [Python Arithmetic Operators](https://docs.python.org/3/library/operator.html#arithmetic-operators)
 - [Python Logical Operators](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not)
-
+```
 
 ## Basic Python: Variables and Types
 
@@ -111,17 +112,63 @@ TypeError: can only concatenate str (not "int") to str
 ```
 When you are scraping raw data from a website, it will **ALWAYS** be collected as a `str`. If for example, you scrape a number that will be used in a calculation (i.e. scraping population data from  a table), you can specify the typing with constructors:
 
-```bash
->>> x = "1"
->>> x * 5 # the character "1" times 5
-"11111" # the character "1", 5 times
+```python
+x = "1"
+x = x*5 # "11111"
 
->>> x = int(x) # convert x:str to x:int
->>> x * 5 # 1 times 5
-5
-```
+x = int(x)
+x = x*5 # 5
 
-```{note}
+s1 = "GLOCAL"
+s2 = "1234"
+i = 1
+f = 2.5
+lst = ["GLOCAL", "Foundation", "of", "Canada"]
+dictionary = {"Name": "Daniel", "Location": "Mars"}
+
+# Convert string to integer
+int_s2 = int(s2)  # 1234
+
+# Convert integer to float
+float_i = float(i)  # 1.0
+
+# Convert float to integer (truncates)
+int_f = int(f)  # 2
+
+# Convert integer to string
+str_i = str(i)  # "1"
+
+# Convert list to string (joined with space)
+joined_list = " ".join(lst)  # "GLOCAL Foundation of Canada"
+
+# Convert string to list (of characters)
+list_s1 = list(s1)  # ['G', 'L', 'O', 'C', 'A', 'L']
+
+# Convert dictionary keys to list
+dict_keys = list(dictionary.keys())  # ['Name', 'Location']
+
+# Convert dictionary values to list
+dict_values = list(dictionary.values())  # ['Daniel', 'Mars']
+
+# Convert list of tuples to dictionary
+tuples = [("a", 1), ("b", 2)]
+tuple_to_dict = dict(tuples)  # {'a': 1, 'b': 2}
+
+# Convert integer to binary, hexadecimal, and octal
+bin_i = bin(i)  # '0b1'
+hex_i = hex(i)  # '0x1'
+oct_i = oct(i)  # '0o1'
+
+# Evaluate string as Python expression (use with caution)
+expr = "3 + 4"
+eval_expr = eval(expr)  # 7
+
+# Safely convert unknown type to string by creating a new variable
+safe_str = str(dictionary)  # "{'Name': 'Daniel', 'Location': 'Mars'}"
+
+# Convert string to list of words
+sentence = "Web scraping is cool"
+split_sentence = sentence.split() 
 ```
 
 ## Working with Strings
