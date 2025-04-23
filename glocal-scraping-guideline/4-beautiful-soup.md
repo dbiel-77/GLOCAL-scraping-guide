@@ -142,50 +142,73 @@ Beyond basic searching and text extraction, BeautifulSoup offers powerful tools 
     # full section text is appended to section_paragraph list
     ```
 
-### Encoding
-After compiling a collection (be it in csv, txt, or other format) of data, it is important to do a thourough check for encoding errors. Even if you declare utf-8 encoding in the save statement, you may still find characters like this in the output:
+## Unicode Normalization
 
-![encoding-error-1](_static/encoding-error-1.png)
+When scraping data from the web, you might run into characters that *look* identical but are encoded differently under the hood. For example, `"é"` could be a single composed character (`U+00E9`) or two characters: `e` + `´` (accent mark). This can break comparisons, searches, or dataset joins.
 
-or a more extreme example, where every character is 'corrupted':
+To avoid these headaches, normalize your text using Python's built-in `unicodedata` module.
 
-![encoding-error-2](_static/encoding-error-2.png)
-
-
-In most cases, this is either due to the file being opened with a non utf-8 encoding in your text editor - Visual Studio Code or a sheet editor like Excel, or due to an improper encoding declaration when saving the file in the script.
-
-[Visual Studio Code – File encoding support](https://code.visualstudio.com/docs/editor/codebasics#_file-encoding-support)
-
-[Microsoft Excel – Save a workbook to text format (CSV UTF‑8)](https://support.microsoft.com/en-us/office/save-a-workbook-to-text-format-txt-or-csv-3e9a9d6c-70da-4255-aa28-fcacf1f081e6)
-
-Once you've determined that the file is correctly encoded, you may notice (or be alerted of) the presence of non-text unicode - invisible instructions to compose the text on page. Regex is especially helpful for finding and replacing nontext - but how do you know what to replace?
-
-[Check for non-ASCII characters here, or in your text editor if supported](https://pages.cs.wisc.edu/~markm/ascii.html)
-
-Then, determine the best course of action for replacing it - this likely means contacting your project manager and providing a detailed report on what you've found.
-
-If you are tasked with removing specific nontext, ReGex is especially helpful in doing so:
+### Example
 
 ```python
-import re
-import regex
+import unicodedata
 
-text = "Some\u200Btext\x00with\uFEFFinvisible\u200Cchars\x1Fand other\u2060weird\u200Dstuff."
+# Original character: 'é'
+# It can appear in two forms:
+# - Composed: U+00E9
+# - Decomposed: U+0065 (e) + U+0301 ( ́)
 
-# Four common methods, each changing different characters depending on what you need 
+# Example strings
+composed = "Café"                         # Likely NFC: single codepoint for é
+decomposed = "Cafe\u0301"                # NFD: e +  ́ (combining acute)
 
-# 1. Replace zero‑width & BOM characters with a space
-clean1 = re.sub(r'[\u200B\u200C\u200D\uFEFF]', ' ', text)
+print("Raw equality:", composed == decomposed)  # False
 
-# 2. Replace ASCII control characters (0x00–0x1F, 0x7F) with a space, likely the correct choice here
-clean2 = re.sub(r'[\x00-\x1F\x7F]', ' ', clean1)
+# Normalize to NFC (composed form)
+nfc_composed = unicodedata.normalize("NFC", decomposed)
+print("NFC equality:", composed == nfc_composed)  # True
 
-# 3. Remove ASCII control characters entirely
-clean3 = re.sub(r'[\x00-\x1F\x7F]', '', clean1)
+# Normalize to NFD (decomposed form)
+nfd_decomposed = unicodedata.normalize("NFD", composed)
+print("NFD example:", [c for c in nfd_decomposed])  # ['C', 'a', 'f', 'e', '\u0301']
 
-# 4. Remove all invisible/non‑text Unicode (any “Other” category)
-clean4 = regex.sub(r'\p{C}+', '', text)
+# NFKC (Compatibility Composition)
+# Transforms characters with formatting (e.g., subscript, superscript, Roman numerals)
+compat_str = "① Ⅳ ²"  # Circled one, Roman numeral four, superscript two
+nfkc = unicodedata.normalize("NFKC", compat_str)
+print("NFKC:", nfkc)  # '1 IV 2'
+
+# NFKD (Compatibility Decomposition)
+# Breaks down characters and removes formatting
+nfkd = unicodedata.normalize("NFKD", compat_str)
+print("NFKD:", [c for c in nfkd])  # ['1', ' ', 'I', 'V', ' ', '2']
 ```
+
+### Normalization Forms
+
+| Form   | Description                                 |
+|--------|---------------------------------------------|
+| `NFC`  | Composes characters to a single code point  |
+| `NFD`  | Decomposes into base characters + marks     |
+| `NFKC` | Compatibility compose (also reformats text) |
+| `NFKD` | Compatibility decompose                     |
+
+In most scraping or NLP workflows, use `NFC` unless you have a specific reason to decompose.
+
+### When to Use This
+
+- Comparing scraped strings to reference datasets
+- Cleaning data before database insertion
+- Avoiding false negatives in string matching
+
+### Reference
+
+- [Unicode Normalization Forms – Unicode Consortium](https://unicode.org/reports/tr15/)
+- [Python `unicodedata` Docs](https://docs.python.org/3/library/unicodedata.html)
+
+---
+
+Drop this right after the "Encoding" section or merge it into your "Advanced Cleaning" suggestions list. It reinforces good data hygiene without bloating the guide. Let me know if you want a follow-up for fuzzy matching after normalization.
 
 **Output**
 ```
