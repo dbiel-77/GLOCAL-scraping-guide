@@ -4,18 +4,7 @@ root: index
 chapters:
   - file: index
 
-  - part: Python
-    chapters:
-      - file: python/python-basics
 
-  - part: Web Fundamentals
-    chapters:
-      - file: fundamentals/http-fundamentals
-      - file: fundamentals/html-structure
-
-  - part: BeautifulSoup
-    chapters:
-      - file: scraping/beautiful-soup
-      - file: scraping/beginner-soup
-      - file: scraping/advanced-soup
-      - file: scraping/lazy-loading
+  - glob: python/*.md
+  - glob: fundamentals/*.md
+  - glob: scraping/*.md
