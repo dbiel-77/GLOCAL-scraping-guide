@@ -22,4 +22,3 @@ Once you've determined that the file is correctly encoded, you may notice (or be
 
 Then, determine the best course of action for replacing it - this likely means contacting your project manager and providing a detailed report on what you've found.
 
----
