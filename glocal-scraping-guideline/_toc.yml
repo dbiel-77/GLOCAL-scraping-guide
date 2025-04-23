@@ -2,9 +2,10 @@ format: jb-book
 root: index
 
 chapters:
-  - file: index
-
-
-  - glob: python/*.md
-  - glob: fundamentals/*.md
-  - glob: scraping/*.md
+- file: python/python-basics
+- file: fundamentals/http-fundamentals
+- file: fundamentals/html-structure
+- file: scraping/beautiful-soup
+- file: scraping/beginner-soup
+- file: scraping/advanced-soup
+- file: scraping/lazy-loading
