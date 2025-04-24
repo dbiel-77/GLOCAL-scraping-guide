@@ -587,6 +587,12 @@ names = ["Alice", "Bob", "Charlie"]
 
 for idx, name in enumerate(names, start=1):
     print(f"{idx}: {name}")
+
+############## OUTPUT ####################
+1: Alice
+2: Bob
+3: Charlie
+##########################################
 ```
 
 This makes your loops easier to read and removes the need to manually manage counters.
