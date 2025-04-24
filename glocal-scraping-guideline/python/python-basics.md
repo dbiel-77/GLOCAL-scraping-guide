@@ -480,7 +480,7 @@ with open("data.txt", "r", encoding="utf-8") as f:
     content = f.read()
 ```
 
-## Error Handling and Logging
+## Other Useful Functions and Syntax
 
 ### Match Statements (Structural Pattern Matching)
 
