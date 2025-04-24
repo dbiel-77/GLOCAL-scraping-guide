@@ -8,6 +8,14 @@ parts:
   - caption: "Python"
     chapters:
       - file: python/python-basics
+      - file: python/python-intermediate
+      - file: python/useful-functions/intro
+        sections:
+          - file: python/useful-functions/encoding
+          - file: python/useful-functions/enumerate
+          - file: python/useful-functions/file-management
+          - file: python/useful-functions/logging
+          - file: python/useful-functions/match-case
 
   - caption: "Web Fundamentals"
     chapters:
