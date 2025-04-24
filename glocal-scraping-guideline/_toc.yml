@@ -1,11 +1,22 @@
-format: jb-book
-root: index
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
 
-chapters:
-- file: python/python-basics
-- file: web-fundamentals/http-fundamentals
-- file: web-fundamentals/html-structure
-- file: scraping/beautiful-soup
-- file: scraping/beginner-soup
-- file: scraping/intermediate-soup
-- file: scraping/lazy-loading
+format: jb-book
+root: intro
+parts:
+
+  - caption: "Python"
+    chapters:
+      - file: python/python-basics
+
+  - caption: "Web Fundamentals"
+    chapters:
+      - file: web-fundamentals/http-fundamentals
+      - file: web-fundamentals/html-structure
+
+  - caption: "Scraping"
+    chapters:
+      - file: scraping/beautiful-soup
+      - file: scraping/beginner-soup
+      - file: scraping/intermediate-soup
+      - file: scraping/lazy-loading
