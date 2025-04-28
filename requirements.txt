@@ -1,4 +1,14 @@
-jupyter-book
-matplotlib
-numpy
-ghp-import
+# Core book builder
+jupyter-book==1.0.4.post1
+
+# Data analysis & plotting
+matplotlib>=3.10.1,<4.0
+numpy==2.2.5
+pandas==2.2.3
+
+# HTML parsing & HTTP
+beautifulsoup4==4.13.4
+requests==2.32.3
+
+# GitHub Pages deployment
+ghp-import==2.1.0
