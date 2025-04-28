@@ -28,3 +28,9 @@ parts:
       - file: scraping/beginner-soup
       - file: scraping/intermediate-soup
       - file: scraping/lazy-loading
+  
+  - caption: "Examples"
+    chapters:
+      - file: examples/intro
+      - file: examples/mp_data
+
