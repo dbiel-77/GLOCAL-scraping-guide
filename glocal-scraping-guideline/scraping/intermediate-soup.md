@@ -3,12 +3,19 @@
 ### Encoding
 After compiling a collection (be it in csv, txt, or other format) of data, it is important to do a thourough check for encoding errors. Even if you declare utf-8 encoding in the save statement, you may still find characters like this in the output:
 
-![encoding-error-1](_static/encoding-error-1.png)
+```{figure} ../_static/encoding-error-1.png
+:name: encoding-error-1
+
+Thats not how you spell councillor's!
+```
 
 or a more extreme example, where every character is 'corrupted':
 
-![encoding-error-2](_static/encoding-error-2.png)
+```{figure} ../_static/encoding-error-2.png
+:name: encoding-error-2
 
+Thats not how you spell anything!
+```
 
 In most cases, this is either due to the file being opened with a non utf-8 encoding in your text editor - Visual Studio Code or a sheet editor like Excel, or due to an improper encoding declaration when saving the file in the script.
 

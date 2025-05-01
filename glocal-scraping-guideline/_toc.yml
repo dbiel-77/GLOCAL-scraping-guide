@@ -28,6 +28,10 @@ parts:
       - file: scraping/beginner-soup
       - file: scraping/intermediate-soup
       - file: scraping/lazy-loading
+
+  - caption: "GLOCAL"
+    chapters:
+      - file: best-practices/intro
   
   - caption: "Examples"
     chapters:
