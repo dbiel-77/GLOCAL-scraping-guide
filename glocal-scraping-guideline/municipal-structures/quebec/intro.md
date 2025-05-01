@@ -7,7 +7,7 @@ In the province of Québec, there exists a total of 1,195 incorporated communiti
 
 ## Incorporated Communities
 
-```{figure} ../../_static/qc/general_municipal_regime.png
+```{figure} ../_static/general_municipal_regime.png
 
 General Municipal Regime in QC
 ```
@@ -20,7 +20,7 @@ Within this level, Québec has a total of 1,108 local municipalities. These inco
 #### Classification
  The main types of local and supralocal municipalities in Québec are as follows:
 
-```{figure} ../../_static/qc/incorporated_communities.png
+```{figure} ../_static/incorporated_communities.png
 ```
 
 #### Governance 
@@ -72,7 +72,7 @@ The Census Profile of 2021 by Statistics Canada provides insights into various d
 
 ## Indigenous Communities
 
-```{figure} ../../_static/qc/indigenous_communities.png
+```{figure} ../_static/indigenous_communities.png
 ```
 
 Within Québec’s local governance systems, there are 14 Northern Villages, 8 Cree villages, and 1 Naskapi village, all of which are Indigenous communities established through Indigenous self-government agreements. While these communities share similarities with incorporated communities in a conventional sense, they are created under different legislation than that used to incorporate standard municipalities.
