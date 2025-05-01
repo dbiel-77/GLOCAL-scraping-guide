@@ -1,11 +1,5 @@
 # Montreal
 
-Great. I’ll prepare a concise yet data-focused breakdown of Montreal’s municipal structure as of 2025, with an emphasis on the composition of the 65-member City Council and the nuances that may cause confusion in scraping or search results (e.g., duplicated roles or borough-specific councils). I’ll include source suggestions for up-to-date data, and embed scraping tips using the `{tip}` format.
-
-I’ll let you know when it's ready for review.
-
-# Montreal Municipal Government Structure (2025)
-
 Montreal’s municipal government is organized into a central **City Council** and multiple **borough councils**, reflecting a two-tier system. The city is divided into 19 boroughs (*arrondissements*), each with its own local council, in addition to representation on the city-wide council. Understanding this structure is key to correctly interpreting the number of councillors and avoiding confusion when scraping data or comparing sources.
 
 ## City Council: Composition and Roles
