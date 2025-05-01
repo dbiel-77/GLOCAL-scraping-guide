@@ -30,7 +30,10 @@ Each borough in Montreal has its own **borough council** that handles local matt
 
 This structure means not all elected officials in Montreal sit on the 65-member city council. Some are **borough-only councillors**. **In total, Montreal has 103 elected officials city-wide** when you include both city council and borough councils ([Roles of elected officials - Élections Montréal](https://elections.montreal.ca/en/roles-of-elected-members/#:~:text=The%20City%20of%20Montreal%20has,103%20elected%20officials)). The 65 city council members are a subset of this, and the remaining are the borough-level councillors who only vote within their borough. For example, a large borough might have a borough mayor and several city councillors on city council, plus a few extra borough councillors to meet local needs. In Ville-Marie, since the city mayor fills the borough mayor role, its borough council includes the mayor and a few appointed city councillors from other areas to reach the required size ([Montreal City Council - Wikipedia](https://en.wikipedia.org/wiki/Montreal_City_Council#:~:text=Each%20borough%20is%20divided%20into,additional%20borough%20councillors%2C%20as%20follows)) ([Montreal City Council - Wikipedia](https://en.wikipedia.org/wiki/Montreal_City_Council#:~:text=elects%202%20borough%20councillors%20Ville,boroughs%20named%20by%20the%20Mayor)).
 
-{tip}If you’re extracting data and see **over 65 names**, you’re likely getting **borough council members** too. To isolate just the city council, **filter out titles like “borough councillor”** and keep only the mayor, borough mayors, and city councillors. This will ensure you have the 65 officials who sit on the city council ([Too many councillors in Montreal? - Spacing Montreal | Spacing Montreal](https://spacing.ca/montreal/2011/01/17/too-many-councillors-in-montreal/#:~:text=So%20how%20does%20our%20City,councillors%2C%20despite%20being%20having%20over)).{tip}
+```{admonition} **Scraping Tip**
+:class: tip
+If you’re extracting data and see **over 65 names**, you’re likely getting **borough council members** too. To isolate just the city council, **filter out titles like “borough councillor”** and keep only the mayor, borough mayors, and city councillors. This will ensure you have the 65 officials who sit on the city council ([Too many councillors in Montreal? - Spacing Montreal | Spacing Montreal](https://spacing.ca/montreal/2011/01/17/too-many-councillors-in-montreal/#:~:text=So%20how%20does%20our%20City,councillors%2C%20despite%20being%20having%20over)).
+```
 
 ## Why the Council Member Count Can Vary by Source
 
@@ -42,7 +45,11 @@ It’s important to note why different websites or data sources might show varyi
 
 - **Outdated or Different Terminology:** Ensure the data is up to date. Montreal’s political structure has been stable in recent years with 65 city council members, but if you come across older information (e.g. prior to borough mergers or changes in 2006), the numbers or borough names might differ. Similarly, French-language sources will use terms like *conseiller de la ville* (city councillor) and *conseiller d’arrondissement* (borough councillor). An English site might just say "councillor" for city councillors. This terminology can affect search or scrape results if not accounted for.
 
-{tip}When scraping names and roles, use the role labels to your advantage. For example, Montreal’s open data or websites might tag each official as **Mayor**, **City Councillor**, or **Borough Councillor**. Use these tags to **filter out borough-only officials**. Also note that borough names are in French (e.g. *Côte-des-Neiges–Notre-Dame-de-Grâce*); be consistent in using the same names or IDs when filtering by borough.{tip}
+```{admonition} **Scraping Tip**
+:class: tip
+
+When scraping names and roles, use the role labels to your advantage. For example, Montreal’s open data or websites might tag each official as **Mayor**, **City Councillor**, or **Borough Councillor**. Use these tags to **filter out borough-only officials**. Also note that borough names are in French (e.g. *Côte-des-Neiges–Notre-Dame-de-Grâce*); be consistent in using the same names or IDs when filtering by borough.
+```
 
 ## Reliable Data Sources for Scraping
 
@@ -56,7 +63,7 @@ To get accurate and current data on Montreal’s council, consider these officia
 
 Using these sources will help ensure you get the **correct count and up-to-date names**. Always cross-reference if possible – for instance, if scraping the city website, you might compare the results against the open data file to verify that you’ve captured all 65 city council members and not accidentally included or omitted others.
 
-```{admonition} **Scraping Tip:**
+```{admonition} **Scraping Tip**
 :class: tip
  The open data CSV (or JSON, if provided) is typically in French. Field names like “**poste**” (position) will indicate if the person is *Maire*, *Maire d’arrondissement*, *Conseiller de la ville*, or *Conseiller d’arrondissement*. Leverage these fields to programmatically distinguish roles. Also, ensure your scraper handles **accented characters** in names and boroughs (e.g., *É* in Élections, *Côte-des-Neiges*). This will prevent encoding issues when you compile the data.
  ```
