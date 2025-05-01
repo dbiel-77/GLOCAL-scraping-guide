@@ -42,4 +42,4 @@ parts:
     chapters:
       - file: municipal-structures/quebec/intro
         sections:
-          -file: municipal-structures/quebec/montreal
+          - file: municipal-structures/quebec/montreal
