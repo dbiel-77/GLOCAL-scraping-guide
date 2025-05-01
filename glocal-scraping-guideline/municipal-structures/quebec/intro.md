@@ -7,7 +7,7 @@ In the province of Québec, there exists a total of 1,195 incorporated communiti
 
 ## Incorporated Communities
 
-```{figure} ..\_static\general_municipal_regime.png
+```{figure} \_static\general_municipal_regime.png
 :name: incorporated_communities
 General Municipal Regime in QC
 ```
@@ -20,7 +20,7 @@ Within this level, Québec has a total of 1,108 local municipalities. These inco
 #### Classification
  The main types of local and supralocal municipalities in Québec are as follows:
 
-```{figure} ../_static/incorporated_communities.png
+```{figure} /_static/incorporated_communities.png
 :name: incorporated_communities
 ```
 
@@ -73,7 +73,7 @@ The Census Profile of 2021 by Statistics Canada provides insights into various d
 
 ## Indigenous Communities
 
-```{figure} ../_static/indigenous_communities.png
+```{figure} _static/indigenous_communities.png
 :name: indigenous_communities
 ```
 
