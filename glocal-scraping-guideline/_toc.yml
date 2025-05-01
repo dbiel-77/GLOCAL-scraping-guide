@@ -38,3 +38,8 @@ parts:
       - file: examples/intro
       - file: examples/mp_data
 
+  - caption: "Municipal Structures"
+    chapters:
+      - file: municipal-structures/quebec/intro
+        sections:
+          -file: municipal-structures/quebec/montreal
