@@ -74,7 +74,7 @@ The Census Profile of 2021 by Statistics Canada provides insights into various d
 
 ## Indigenous Communities
 
-```{figure} /_static/indigenous_communities.png
+```{figure} /_static/qc/indigenous_communities.png
 :name: indigenous_communities
 Breakdown of Indigenous Communities in QC
 ```
