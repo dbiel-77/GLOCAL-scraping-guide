@@ -3,7 +3,7 @@
 ### Encoding
 After compiling a collection (be it in csv, txt, or other format) of data, it is important to do a thourough check for encoding errors. Even if you declare utf-8 encoding in the save statement, you may still find characters like this in the output:
 
-```{figure} ../_static/encoding-error-1.png
+```{figure} ../_static/encoding/encoding-error-1.png
 :name: encoding-error-1
 
 Thats not how you spell councillor's!
@@ -11,7 +11,7 @@ Thats not how you spell councillor's!
 
 or a more extreme example, where every character is 'corrupted':
 
-```{figure} ../_static/encoding-error-2.png
+```{figure} ../_static/encoding/encoding-error-2.png
 :name: encoding-error-2
 
 Thats not how you spell anything!
