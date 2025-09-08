@@ -31,6 +31,9 @@ jobs:
         run: |
           jupyter-book clean glocal-scraping-guideline
           jupyter-book build glocal-scraping-guideline
+          
+      - name: Add .nojekyll
+        run: touch glocal-scraping-guideline/_build/html/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
