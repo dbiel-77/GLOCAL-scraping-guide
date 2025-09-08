@@ -38,7 +38,7 @@ parts:
       - file: examples/intro
       - file: examples/mp_data
 
-  - caption: "Municipal Structures"
+  - caption: "Municipal Data Project"
     chapters:
       - file: municipal-structures/quebec/intro
         sections:
