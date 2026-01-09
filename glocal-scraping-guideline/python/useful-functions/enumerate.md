@@ -9,8 +9,9 @@ for idx, name in enumerate(names, start=1):
     print(f"{idx}: {name}")
 
 ############## OUTPUT ####################
-0: Alice
-1:
+1: Alice
+2: Bob
+3: Charlie
 ##########################################
 ```
 
